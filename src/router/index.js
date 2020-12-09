@@ -21,7 +21,7 @@ export default new VueRouter({
             redirect:'login',
         },
         {
-            path:'/main',
+            path:'/',
             name:'主要頁面',
             component:Main
         },
