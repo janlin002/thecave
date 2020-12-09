@@ -1,21 +1,203 @@
 <template>
     <div>
+        <loading :active.sync="isLoading"></loading>
         <Navbar></Navbar>
         <div class="jumbotron  d-flex align-items-end">
         <h1 class="display-4 ml-5">服務項目</h1>
-        
         </div>
+
+    <div class="container pt-5">
+    <div class="row">
+        <div class="col-md-3">
+        <!-- 左側選單 -->
+        <div class="list-group sticky-top">
+            <a href="#" class="list-group-item list-group-item-action active">
+                Cras justo odio
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+            <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+            <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
+            </div>
+        </div>
+       <!-- 子選單 -->
+       <div class="col-md-9">
+           <div class="row">
+<div class="col-md-4 mb-4 " v-for="item in products" :key="item.id">
+        <div class="card border-0 shadow-sm rounded" >
+          <div style="height: 150px; background-size: cover; background-position: center" class="rounded"
+          :style="{backgroundImage:`url(${item.imageUrl})`}"
+            >
+          </div>
+          <div class="card-body">
+            <span class="badge badge-secondary float-right ml-2">分類</span>
+            <h5 class="card-title">
+              <a href="#" class="text-dark">{{item.title}}</a>
+            </h5>
+            <p class="card-text">{{item.content}}</p>
+            <div class="d-flex justify-content-between align-items-baseline">
+              <!-- 前者僅有顯示原價 -->
+              <div class="h5" v-if="!item.price">{{ item.origin_price }}</div>
+              <!-- 後者僅顯示原價+優惠價 -->
+              <del class="h6" v-if="item.price">原價{{ item.origin_price }}</del>
+              <div class="h5" v-if="item.price">疫情價{{ item.price }}</div>
+            </div>
+          </div>
+          <div class="card-footer d-flex">
+            <button type="button" class="btn btn-outline-secondary btn-sm"
+            @click="getProduct(item.id)">
+              <i class="fas fa-spinner fa-spin" v-if="status.loadingItem===item.id"></i>
+              查看更多
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-sm ml-auto"
+            @click="addtoCart(item.id)">
+              <i class="fas fa-spinner fa-spin" v-if="status.loadingItem===item.id"></i>
+              加到購物車
+            </button>
+          </div>
+        </div>
+      </div>
+           </div>
+           
+       </div>
+      
+      </div>
+    </div>
+    <!-- modal -->
+    <div
+      class="modal fade"
+      id="productModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{ product.title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img :src="product.imageUrl" class="img-fluid" alt />
+            <blockquote class="blockquote mt-3">
+              <p class="mb-0">{{ product.content }}</p>
+              <footer class="blockquote-footer text-right">{{ product.description }}</footer>
+            </blockquote>
+            <div class="d-flex justify-content-between align-items-baseline">
+              <div class="h4" v-if="!product.price">{{ product.origin_price }} 元</div>
+              <del class="h6" v-if="product.price">原價 {{ product.origin_price }} 元</del>
+              <div class="h4" v-if="product.price">現在只要 {{ product.price }} 元</div>
+            </div>
+            <select name class="form-control mt-3" v-model="product.num">
+              <option :value="num" v-for="num in 5" :key="num">選購 {{num}} {{product.unit}}</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <div class="text-muted text-nowrap mr-3">
+              小計
+              <strong>{{ product.num * product.price }}</strong> 元
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary"
+              @click="addtoCart(product.id, product.num)"
+            >
+              <i class="fas fa-spinner fa-spin" v-if="product.id === status.loadingItem"></i>
+              加到購物車
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
         <Footer></Footer>
     </div>
 </template>
 
 <script>
+import $ from 'jquery';
 import Navbar from './Navbar';
 import Footer from './Footer';
 export default {
     components:{
         Navbar,
         Footer
+    },
+    data(){
+        return{
+        products:[],
+        product:{},
+        isLoading:false,
+        searchText:'',
+        status:{
+            loadingItem:'',
+        }
+        }
+    },
+    methods:{
+    getProducts() {
+      const vm = this;
+      const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products`;
+      vm.isLoading = true;
+      this.$http.get(url).then(response => {
+        vm.products = response.data.products;
+        console.log(response);
+        vm.isLoading = false;
+      });
+    },
+    getProduct(id) {
+      const vm = this;
+      const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/product/${id}`;
+      vm.status.loadingItem = id;
+      this.$http.get(url).then(response => {
+        vm.product = response.data.product;
+        $("#productModal").modal("show"); 
+        console.log(response);
+        vm.status.loadingItem = "";
+      });
+    },
+    addtoCart(id,qty = 1){
+      const vm = this;
+      const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
+      vm.status.loadingItem = id;
+      const cart = {
+        product_id: id,
+        qty
+      };
+      this.$http.post(url, { data: cart }).then(response => {
+        console.log(response);
+        vm.status.loadingItem = "";
+        vm.getCart();
+        $("#productModal").modal("hide");
+      });
+    },
+    getCart() {
+      const vm = this;
+      const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
+      vm.isLoading = true;
+      this.$http.get(url).then(response => {
+        vm.cart = response.data.data;
+        console.log(response);
+        vm.isLoading = false;
+      });
+    },
+    },
+    computed:{
+        filterData() {
+      const vm = this;
+      if (vm.searchText) {
+        return vm.products.filter((item) => {
+          const data = item.category.toLowerCase().includes(vm.searchText.toLowerCase());
+          return data;
+        });
+      }
+      return this.products;
+    },
+    },
+    created(){
+        this.getProducts();
     }
 }
 </script>
@@ -26,6 +208,10 @@ export default {
     background-size: cover;
     background-position: center center;
     min-height:350px;
+    color:white;
+}
+.active{
+    background-color: black;
     color:white;
 }
 </style>

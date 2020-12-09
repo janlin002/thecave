@@ -23,9 +23,6 @@
                 <li class="nav-item">
                 <router-link to="/traffic" class="nav-link" href="#" tabindex="-1" aria-disabled="true">交通方式</router-link>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">聯絡我們</a>
-                </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0">
                 <i class="fas fa-shopping-cart fa-2x"></i>
