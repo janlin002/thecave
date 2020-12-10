@@ -10,12 +10,11 @@
     <div class="row">
         <div class="col-md-3">
          <!-- 左側選單 -->
-        <div class="list-group sticky-top mt-4" style="top:20px">
+        <div class="list-group sticky-top " style="top:100px">
             <a class="list-group-item list-group-item-action"
                @click.prevent="searchText = item"
               :class="{ 'active': item === searchText}"
               v-for="item in categories" :key="item">
-              <!-- <i class="fa fa-street-view" aria-hidden="true"></i> -->
               {{ item }}
             </a>
             <a href="#" class="list-group-item list-group-item-action"
