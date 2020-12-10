@@ -10,28 +10,28 @@
             <div class="carousel-inner">
             <div class="carousel-item active img-1">
                 <div class="container">
-                <div class="carousel-caption text-left">
-                    <h1>Example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                <div class="carousel-caption text-left text-dark">
+                    <h1>如果你在找一個私人的空間...</h1>
+                    <p>免綁約,想租隨時都有位置</p>
+                    <p><router-link to="/about" class="btn btn-lg btn-outline-dark" href="#" role="button">看介紹</router-link></p>
                 </div>
                 </div>
             </div>
             <div class="carousel-item img-2">
                 <div class="container">
-                <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                <div class="carousel-caption text-dark">
+                    <h1>如果你在找CP值高的辦公室...</h1>
+                    <p>價格絕對比同屆便宜，且提供好吃的甜點</p>
+                    <p><router-link to="/server" class="btn btn-lg btn-outline-dark" href="#" role="button">查看服務</router-link></p>
                 </div>
                 </div>
             </div>
             <div class="carousel-item img-3">
                 <div class="container">
-                <div class="carousel-caption text-right">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                <div class="carousel-caption text-right text-dark">
+                    <h1>如果你還在猶豫方便性...</h1>
+                    <p>地點就位在美麗華內，方便、好找</p>
+                    <p><router-link to="/traffic" class="btn btn-lg btn-outline-dark" href="#" role="button">查看交通</router-link></p>
                 </div>
                 </div>
             </div>
@@ -55,11 +55,12 @@
 
             <div class="row featurette">
             <div class="col-sm-6">
-                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <h3 class="featurette-heading">我們提供獨立的插座</h3>
+                <h4 class="text-muted">是否都會擔心沒插座可用？</h4>
+                <p class="lead">在 The Cave 不用擔心這個問題，因為每個座位都有安排自己的插座，再也不需要跟別人搶插座了!</p>
             </div>
             <div class="col-sm-6">
-                    <img src="https://images.unsplash.com/photo-1508920291026-c344bbfca1ab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="cphoto" alt="...">
+                    <img src="https://images.unsplash.com/photo-1552849787-524441312cec?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1951&q=80" class="cphoto" alt="...">
             </div>
             </div>
 
@@ -69,7 +70,7 @@
             <div class="col-md-6 order-md-2">
                 <h3 class="featurette-heading">我們提供了舒服的座位 </h3>
                 <h4 class="text-muted">7D人體工學躺椅</h4>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <p class="lead">對於長時間需再坐在椅子上的顧客，我們提供了最新技術的椅子，讓您在工作之餘也能顧慮到身體</p>
             </div>
             <div class="col-md-6">
                 <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
@@ -81,9 +82,9 @@
 
             <div class="row featurette">
             <div class="col-md-6">
-                <h3 class="featurette-heading">我們提供了完美的咖啡 </h3>
-                <h4 class="text-muted">伊爾加西咖啡豆</h4>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <h3 class="featurette-heading">我們供應咖啡店的服務 </h3>
+                <h4 class="text-muted">咖啡，蛋糕</h4>
+                <p class="lead">工作前來杯蒿喝的咖啡有助於提神，工作累後來片個蛋糕，有助於提深工作效率</p>
             </div>
             <div class="col-md-6">
                 <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
@@ -99,17 +100,17 @@
             <div class="col-lg-4">
                 <img src="https://randomuser.me/api/portraits/women/17.jpg"  class="bighead mb-4" alt="">
                 <h2>Mrs.Lian</h2>
-                <p>"能夠一直身處在明亮整潔的辦公室真的很棒，適合接待 500 間公司人員和客戶。"</p>
+                <p style="font-size: 17px;"> "能夠一直身處在明亮整潔的辦公室真的很棒，適合接待 500 間公司人員和客戶。"</p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
                 <img src="https://randomuser.me/api/portraits/men/4.jpg"  class="bighead mb-4" alt="">
                 <h2>Mr.Lin</h2>
-                <p>"自從加入 The Cave 後，從來沒有員工轉職，The Cave 共同工作的文化有助我們招募員工。"</p>
+                <p style="font-size: 17px;">"自從加入 The Cave 後，從來沒有員工轉職，The Cave 共同工作的文化有助我們招募員工。"</p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
                 <img src="https://randomuser.me/api/portraits/women/35.jpg"  class="bighead mb-4" alt="">
                 <h2>Mrs.Huang</h2>
-                <p>"我們找過傳統辦公室，但 The Cave 更符合我們的需求，它可提供隨著我們組織成長而擴大規模的解決方案。"</p>
+                <p style="font-size: 17px;">"我們找過傳統辦公室，但 The Cave 更符合我們的需求，它可提供隨著我們組織成長而擴大規模的解決方案。"</p>
             </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
 
@@ -233,17 +234,17 @@ body {
     }
   }
   .img-1{
-      background-image: url(https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
+      background-image: url(https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80);
       background-size: cover;
       background-position: center center;
   }
   .img-2{
-    background-image: url(https://images.unsplash.com/photo-1525193612562-0ec53b0e5d7c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
+    background-image: url(https://images.unsplash.com/photo-1488998427799-e3362cec87c3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80);
     background-size: cover;
     background-position: center center;
 }
 .img-3{
-    background-image: url(https://images.unsplash.com/photo-1458217222755-d1c4985b0852?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1939&q=80);
+    background-image: url(https://images.unsplash.com/photo-1513077202514-c511b41bd4c7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);
     background-size: cover;
     background-position: center center;
 }
