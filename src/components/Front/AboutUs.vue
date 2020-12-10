@@ -80,7 +80,7 @@ export default {
     components:{
         Navbar,
         Footer
-    }
+    },
 }
 </script>
 

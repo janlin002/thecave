@@ -9,21 +9,26 @@
     <div class="container pt-5">
     <div class="row">
         <div class="col-md-3">
-        <!-- 左側選單 -->
-        <div class="list-group sticky-top">
-            <a href="#" class="list-group-item list-group-item-action active">
-                Cras justo odio
+         <!-- 左側選單 -->
+        <div class="list-group sticky-top mt-4" style="top:20px">
+            <a class="list-group-item list-group-item-action"
+               @click.prevent="searchText = item"
+              :class="{ 'active': item === searchText}"
+              v-for="item in categories" :key="item">
+              <!-- <i class="fa fa-street-view" aria-hidden="true"></i> -->
+              {{ item }}
             </a>
-            <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-            <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-            <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-            <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
-            </div>
+            <a href="#" class="list-group-item list-group-item-action"
+              @click.prevent="searchText = ''"
+              :class="{ 'active': searchText === ''}">
+              全部顯示
+            </a>
+          </div>
         </div>
        <!-- 子選單 -->
        <div class="col-md-9">
            <div class="row">
-<div class="col-md-4 mb-4 " v-for="item in products" :key="item.id">
+<div class="col-md-4 mb-4 " v-for="item in filterData" :key="item.id">
         <div class="card border-0 shadow-sm rounded" >
           <div style="height: 150px; background-size: cover; background-position: center" class="rounded"
           :style="{backgroundImage:`url(${item.imageUrl})`}"
@@ -127,7 +132,7 @@ export default {
     },
     data(){
         return{
-        products:[],
+        // products:[],
         product:{},
         isLoading:false,
         searchText:'',
@@ -138,14 +143,15 @@ export default {
     },
     methods:{
     getProducts() {
-      const vm = this;
-      const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products`;
-      vm.isLoading = true;
-      this.$http.get(url).then(response => {
-        vm.products = response.data.products;
-        console.log(response);
-        vm.isLoading = false;
-      });
+      // const vm = this;
+      // const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products`;
+      // vm.isLoading = true;
+      // this.$http.get(url).then(response => {
+      //   vm.products = response.data.products;
+      //   console.log(response);
+      //   vm.isLoading = false;
+      // });
+      this.$store.dispatch('getProducts');
     },
     getProduct(id) {
       const vm = this;
@@ -183,6 +189,14 @@ export default {
         vm.isLoading = false;
       });
     },
+    getUnique(){
+      const vm=this;
+      const categories=new Set();
+      vm.products.forEach((item)=>{
+        categories.add(item.category);
+      });
+      vm.categories=Array.from(categories);
+    }
     },
     computed:{
         filterData() {
@@ -195,6 +209,12 @@ export default {
       }
       return this.products;
     },
+    categories(){
+      return this.$store.state.categories;
+    },
+    products(){
+      return this.$store.state.products;
+    }
     },
     created(){
         this.getProducts();

@@ -6,12 +6,14 @@ import axios from 'axios'
 import 'bootstrap';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
+import Vuex from 'vuex';
 
 
 import VueAxios from 'vue-axios'
 import router from './router';
 import './bus'
 import currencyFilter from './filter/currency';
+import store from './store';
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
@@ -19,6 +21,7 @@ Vue.use(VueAxios, axios)
 // 全域
 Vue.component('Loading',Loading);
 Vue.filter('currency',currencyFilter);
+Vue.use(Vuex);
 
 axios.defaults.withCredentials=true;
 
@@ -27,7 +30,8 @@ new Vue({
   el: '#app',
   components: { App },
   template: '<App/>',
-  router
+  router,
+  store
 })
 
 router.beforeEach((to, from, next) => {
