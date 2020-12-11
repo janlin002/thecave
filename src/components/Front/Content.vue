@@ -13,7 +13,7 @@
                 <div class="carousel-caption text-left text-dark">
                     <h1>如果你在找一個私人的空間...</h1>
                     <p>免綁約,想租隨時都有位置</p>
-                    <p><router-link to="/about" class="btn btn-lg btn-outline-dark" href="#" role="button">看介紹</router-link></p>
+                    <p><router-link to="/about" class="btn btn-lg btn-outline-dark" href="#" role="button">查看介紹</router-link></p>
                 </div>
                 </div>
             </div>

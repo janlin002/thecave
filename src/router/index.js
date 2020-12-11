@@ -12,6 +12,9 @@ import Server from '@/components/Front/Server';
 import CustomerOrder from '@/components/pages/CustomerOrder';
 import Coupon from '@/components/pages/Coupon';
 import CustomerCheckout from '@/components/pages/CustomerCheckout';
+import Order from '@/components/Front/Order';
+import Checkout from '@/components/Front/Checkout';
+import Welcome from '@/components/Front/Welcome';
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -23,7 +26,19 @@ export default new VueRouter({
         {
             path:'/',
             name:'主要頁面',
-            component:Main
+            component:Welcome,
+            children:[
+                {
+                    path:'',
+                    name:'主要頁面',
+                    component:Main,
+                },
+                {
+                    path:'/checkout/:orderId',
+                    name:'顧客送出訂單',
+                    component:Checkout, 
+                }
+            ]
         },
         {
             path:'/about',
@@ -44,6 +59,11 @@ export default new VueRouter({
             name:'後台登入',
             path:'/login',
             component:Login
+        },
+        {
+            path:'/order',
+            name:'確認商品頁面',
+            component:Order
         },
         {
             name:'後台',
@@ -77,7 +97,8 @@ export default new VueRouter({
                     path:'customer_checkout/:orderId',
                     name:'送出訂單',
                     component:CustomerCheckout,
-                }
+                },
+                
             ]
         }
     ]

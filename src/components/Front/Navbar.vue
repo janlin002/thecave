@@ -50,9 +50,8 @@
               </tr>
             </tbody>
           </table>
-          <router-link aria-hidden="true" to="/cart" class="text-light">
+          <router-link aria-hidden="true" to="/order" class="text-light">
           <button class="btn btn-primary btn-block">
-            
             <i class="fa fa-cart-plus">結帳去</i>
           </button>
           </router-link> 
