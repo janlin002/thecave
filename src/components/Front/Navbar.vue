@@ -28,7 +28,6 @@
         <button class="btn btn-sm btn-cart" data-toggle="dropdown" data-flip="false">
           <i class="fa fa-shopping-cart text-dark fa-2x" aria-hidden="true"></i>
           <span class="badge badge-pill badge-danger">{{cart.carts.length}}</span>
-          <!-- <span class="sr-only">unread messages</span> -->
         </button>
 
         <div class="dropdown-menu dropdown-menu-right p-3" style="min-width: 300px" data-offset="400" >
@@ -37,9 +36,6 @@
             <tbody>
               <tr v-for="item in cart.carts" :key="item.id" v-if="cart.carts.length">
                 <td class="align-middle text-center">
-                  <!-- <a href="#" class="text-muted" @click.prevent="removeCart(item.id)">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                  </a> -->
                   <button type="button" class="btn btn-outline-danger btn-sm" @click="removeCartItem(item.id)">
                   <i class="far fa-trash-alt"></i>
                 </button>
@@ -69,32 +65,13 @@ import $ from 'jquery';
 export default {
   data(){
     return {
-      // cart:{
-      //   carts:[]
-      // }
     }
   },
   methods:{
     getCart() {
-      // const vm = this;
-      // const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-      // vm.isLoading = true;
-      // this.$http.get(url).then(response => {
-      //   vm.cart = response.data.data;
-      //   console.log(response);
-      //   vm.isLoading = false;
-      // });
       this.$store.dispatch('getCart',);
     },
     removeCart(id){
-    // const vm = this;
-    //   const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart/${id}`;
-    //   vm.$store.state.isLoading = true;
-    //   this.$http.delete(url).then(response => {
-    //     vm.getCart();
-    //     console.log(response);
-    //     vm.$store.state.isLoading = false;
-    //   });
     this.$store.dispatch('removeCart',id);
     },
      removeCartItem(id) {

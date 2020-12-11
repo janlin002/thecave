@@ -142,14 +142,6 @@ export default {
     },
     methods:{
     getProducts() {
-      // const vm = this;
-      // const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products`;
-      // vm.isLoading = true;
-      // this.$http.get(url).then(response => {
-      //   vm.products = response.data.products;
-      //   console.log(response);
-      //   vm.isLoading = false;
-      // });
       this.$store.dispatch('getProducts');
     },
     getProduct(id) {
@@ -164,31 +156,10 @@ export default {
       });
     },
     addtoCart(id,qty = 1){
-      // const vm = this;
-      // const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-      // vm.status.loadingItem = id;
-      // const cart = {
-      //   product_id: id,
-      //   qty
-      // };
-      // this.$http.post(url, { data: cart }).then(response => {
-      //   console.log(response);
-      //   vm.status.loadingItem = "";
-      //   vm.getCart();
-      //   $("#productModal").modal("hide");
-      // });
       this.$store.dispatch('addtoCart',{id,qty});
       $("#productModal").modal("hide");
     },
     getCart() {
-      // const vm = this;
-      // const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-      // vm.isLoading = true;
-      // this.$http.get(url).then(response => {
-      //   vm.cart = response.data.data;
-      //   console.log(response);
-      //   vm.isLoading = false;
-      // });
       this.$store.dispatch('getCart');
     },
     getUnique(){

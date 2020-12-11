@@ -87,7 +87,6 @@
                 <p class="lead">工作前來杯蒿喝的咖啡有助於提神，工作累後來片個蛋糕，有助於提深工作效率</p>
             </div>
             <div class="col-md-6">
-                <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
                 <img src="https://images.unsplash.com/photo-1536319229365-83318cdc7b83?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="cphoto" alt="">
             </div>
             </div>
@@ -95,24 +94,24 @@
         <hr class="featurette-divider">
         <div class="container marketing">
 
-            <!-- Three columns of text below the carousel -->
+            
             <div class="row">
             <div class="col-lg-4">
                 <img src="https://randomuser.me/api/portraits/women/17.jpg"  class="bighead mb-4" alt="">
                 <h2>Mrs.Lian</h2>
                 <p style="font-size: 17px;"> "能夠一直身處在明亮整潔的辦公室真的很棒，適合接待 500 間公司人員和客戶。"</p>
-            </div><!-- /.col-lg-4 -->
+            </div>
             <div class="col-lg-4">
                 <img src="https://randomuser.me/api/portraits/men/4.jpg"  class="bighead mb-4" alt="">
                 <h2>Mr.Lin</h2>
                 <p style="font-size: 17px;">"自從加入 The Cave 後，從來沒有員工轉職，The Cave 共同工作的文化有助我們招募員工。"</p>
-            </div><!-- /.col-lg-4 -->
+            </div>
             <div class="col-lg-4">
                 <img src="https://randomuser.me/api/portraits/women/35.jpg"  class="bighead mb-4" alt="">
                 <h2>Mrs.Huang</h2>
                 <p style="font-size: 17px;">"我們找過傳統辦公室，但 The Cave 更符合我們的需求，它可提供隨著我們組織成長而擴大規模的解決方案。"</p>
-            </div><!-- /.col-lg-4 -->
-            </div><!-- /.row -->
+            </div>
+            </div>
 
 
             <hr class="featurette-divider">
@@ -158,16 +157,10 @@ body {
     border-radius: 50%;
     min-width: 150px;
   }
-  /* CUSTOMIZE THE CAROUSEL
-  -------------------------------------------------- */
-  
-  /* Since positioning the image, we need to help out the caption */
   .carousel-caption {
     bottom: 3rem;
     z-index: 10;
   }
-  
-  /* Declare heights because of positioning of img element */
   .carousel-item {
     height: 32rem;
   }
@@ -178,12 +171,6 @@ body {
     min-width: 100%;
     height: 32rem;
   }
-  
-  
-  /* MARKETING CONTENT
-  -------------------------------------------------- */
-  
-  /* Center align the text within the three columns below the carousel */
   .marketing .col-lg-4 {
     margin-bottom: 1.5rem;
     text-align: center;
@@ -195,28 +182,15 @@ body {
     margin-right: .75rem;
     margin-left: .75rem;
   }
-  
-  
-  /* Featurettes
-  ------------------------- */
-  
   .featurette-divider {
     margin: 5rem 0; 
   }
-  
-  /* Thin out the marketing headings */
   .featurette-heading {
     font-weight: 300;
     line-height: 1;
     letter-spacing: -.05rem;
   }
-  
-  
-  /* RESPONSIVE CSS
-  -------------------------------------------------- */
-  
   @media (min-width: 40em) {
-    /* Bump up size of carousel content */
     .carousel-caption p {
       margin-bottom: 1.25rem;
       font-size: 1.25rem;
