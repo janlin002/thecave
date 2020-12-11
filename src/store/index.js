@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import Vuex from 'vuex';
+import $ from 'jquery';
 
 Vue.use(Vuex);
 
@@ -47,10 +48,7 @@ export default new Vuex.Store({
             });
           },
           addtoCart(context,{id, qty}) {
-            // const vm = this;
             const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-
-            // vm.status.loadingItem = id;
             const cart = {
               product_id: id,
               qty
@@ -61,10 +59,6 @@ export default new Vuex.Store({
                 context.dispatch('getCart');
                 
               }
-              // console.log(response);
-              // vm.status.loadingItem = "";
-              
-              // vm.getCart();
             });
           },
           removeCart(context,id){

@@ -133,7 +133,7 @@ export default {
         return{
         // products:[],
         product:{},
-        isLoading:false,
+        // isLoading:false,
         searchText:'',
         status:{
             loadingItem:'',
@@ -164,29 +164,32 @@ export default {
       });
     },
     addtoCart(id,qty = 1){
-      const vm = this;
-      const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-      vm.status.loadingItem = id;
-      const cart = {
-        product_id: id,
-        qty
-      };
-      this.$http.post(url, { data: cart }).then(response => {
-        console.log(response);
-        vm.status.loadingItem = "";
-        vm.getCart();
-        $("#productModal").modal("hide");
-      });
+      // const vm = this;
+      // const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
+      // vm.status.loadingItem = id;
+      // const cart = {
+      //   product_id: id,
+      //   qty
+      // };
+      // this.$http.post(url, { data: cart }).then(response => {
+      //   console.log(response);
+      //   vm.status.loadingItem = "";
+      //   vm.getCart();
+      //   $("#productModal").modal("hide");
+      // });
+      this.$store.dispatch('addtoCart',{id,qty});
+      $("#productModal").modal("hide");
     },
     getCart() {
-      const vm = this;
-      const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-      vm.isLoading = true;
-      this.$http.get(url).then(response => {
-        vm.cart = response.data.data;
-        console.log(response);
-        vm.isLoading = false;
-      });
+      // const vm = this;
+      // const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
+      // vm.isLoading = true;
+      // this.$http.get(url).then(response => {
+      //   vm.cart = response.data.data;
+      //   console.log(response);
+      //   vm.isLoading = false;
+      // });
+      this.$store.dispatch('getCart');
     },
     getUnique(){
       const vm=this;
@@ -213,7 +216,13 @@ export default {
     },
     products(){
       return this.$store.state.products;
-    }
+    },
+    cart(){
+      return this.$store.state.cart;
+    },
+    isLoading(){
+        return this.$store.state.isLoading;
+      },
     },
     created(){
         this.getProducts();
