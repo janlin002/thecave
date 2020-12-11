@@ -21,7 +21,7 @@
                 <div class="container">
                 <div class="carousel-caption text-dark">
                     <h1>如果你在找CP值高的辦公室...</h1>
-                    <p>價格絕對比同屆便宜，且提供好吃的甜點</p>
+                    <p>價格絕對比同業便宜，且提供好吃的甜點</p>
                     <p><router-link to="/server" class="btn btn-lg btn-outline-dark" href="#" role="button">查看服務</router-link></p>
                 </div>
                 </div>

@@ -34,7 +34,7 @@
             >
           </div>
           <div class="card-body">
-            <span class="badge badge-secondary float-right ml-2">分類</span>
+            <span class="badge badge-secondary float-right ml-2">{{item.category}}</span>
             <h5 class="card-title">
               <a href="#" class="text-dark">{{item.title}}</a>
             </h5>
