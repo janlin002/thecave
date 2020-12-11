@@ -11,16 +11,16 @@
         <div class="col-md-3">
          <!-- 左側選單 -->
         <div class="list-group sticky-top " style="top:100px">
+            <a href="#" class="list-group-item list-group-item-action"
+              @click.prevent="searchText = ''"
+              :class="{ 'active': searchText === ''}">
+              全部顯示
+            </a>
             <a class="list-group-item list-group-item-action"
                @click.prevent="searchText = item"
               :class="{ 'active': item === searchText}"
               v-for="item in categories" :key="item">
               {{ item }}
-            </a>
-            <a href="#" class="list-group-item list-group-item-action"
-              @click.prevent="searchText = ''"
-              :class="{ 'active': searchText === ''}">
-              全部顯示
             </a>
           </div>
         </div>
