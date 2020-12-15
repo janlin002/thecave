@@ -29,7 +29,7 @@
            <div class="row">
 <div class="col-md-4 mb-4 " v-for="item in filterData" :key="item.id">
         <div class="card border-0 shadow-sm rounded" >
-          <div style="height: 258px; background-size: cover; background-position: center" class="rounded"
+          <div style="height: 250px; background-size: cover; background-position: center" class="rounded"
           :style="{backgroundImage:`url(${item.imageUrl})`}"
             >
           </div>
